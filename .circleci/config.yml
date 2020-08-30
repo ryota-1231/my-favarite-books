@@ -30,7 +30,7 @@ jobs:
       - checkout
       # CircleCIに登録した秘密鍵を呼び出す。
       - add_ssh_keys:
-      - run: ssh $ubuntu@$54.95.101.98 'cd my-favarite-books && sudo git pull && sudo docker-compose restart'
+      - run: ssh $ubuntu@$54.95.101.98 'cd my-favarite-books && sudo git pull origin master && sudo docker-compose restart'
 
 # テストが成功した場合のみ、deployを実行するようにします。
 workflows:
