@@ -24,19 +24,6 @@ class BookTest extends TestCase
     /**
      * @test
      */
-    public function store()
-    {
-        $this->post('/books/store',['title' => '初めて読んだ本','body' => '最高に面白かったやっぱりよかった']);
-        $this->assertDatabaseHas('books',[
-            'title' => '初めて読んだ本',
-            'body' => '最高に面白かったやっぱりよかった'
-        ]);
-        Book::where('title','初めて読んだ本')->delete();
-    }
-
-    /**
-     * @test
-     */
     public function register()
     {
         $response = $this->get('/books/register');
@@ -53,4 +40,18 @@ class BookTest extends TestCase
 
         $response->assertStatus(200);
     }
+
+    /**
+     * @test
+     */
+    public function store()
+    {
+        $this->post('/books/store',['title' => '初めて読んだ本','body' => '最高に面白かったやっぱりよかった']);
+        $this->assertDatabaseHas('books',[
+            'title' => '初めて読んだ本',
+            'body' => '最高に面白かったやっぱりよかった'
+        ]);
+        Book::where('title','初めて読んだ本')->delete();
+    }
+
 }
