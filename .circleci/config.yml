@@ -11,8 +11,8 @@ jobs:
           name: docker-compose up
           command: docker-compose up -d
       - run:
-          name: migrate
-          command: docker-compose exec app bash -c 'cd my-laravel-app && composer install && cp docker/laravel/.env .env && chmod 777 -R storage/ &&php artisan key:generate && php artisan config:cache && php artisan migrate'
+          name: configer laraval
+          command: docker-compose exec app bash -c 'cd my-laravel-app && composer install && cp ../docker/laravel/.env .env && chmod 777 -R storage/ php artisan key:generate && php artisan config:cache && php artisan migrate'
       - run:
           name: restart
           command: docker-compose down && docker-compose up -d 
